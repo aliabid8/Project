@@ -46,6 +46,46 @@ app.get('/country',async(req,res)=>{
 });
 
 
+// -----------------G.QUERIES--------------------
+app.get('/empdetails',async(req,res)=>{
+    try{
+        const result = await pool.query('select * from empdetails;');
+            res.json(result.rows)
+    }catch(err)
+    {
+        res.status(500).json({error : err.message});
+    }
+});
+app.get('/dptdetails',async(req,res)=>{
+    try{
+        const result = await pool.query('select * from dptdetails;');
+            res.json(result.rows)
+    }catch(err)
+    {
+        res.status(500).json({error : err.message});
+    }
+});
+
+app.get('/mgrdetails',async(req,res)=>{
+    try{
+        const result = await pool.query('select * from mgrdetails;');
+            res.json(result.rows)
+    }catch(err)
+    {
+        res.status(500).json({error : err.message});
+    }
+});
+
+app.get('/countrydetails',async(req,res)=>{
+    try{
+        const result = await pool.query('select * from countrydetails;');
+            res.json(result.rows)
+    }catch(err)
+    {
+        res.status(500).json({error : err.message});
+    }
+});
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT,()=>{
